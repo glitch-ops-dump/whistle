@@ -1,0 +1,68 @@
+name: Bug report
+description: Report a reproducible problem in Whistle.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real citizen data, private evidence, credentials, OTPs, tokens, or production incident details.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What failed, and what did you expect to happen?
+      placeholder: The citizen submission flow...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: List the exact steps needed to reproduce the issue.
+      placeholder: |
+        1. Run npm run dev
+        2. Open /citizen.html
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Citizen PWA
+        - Admin Console
+        - Verification Console
+        - CM Cell Dashboard
+        - Ministry Dashboard
+        - MLA/Local Dashboard
+        - API/server
+        - Jurisdiction packs
+        - Docs/tooling
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Local, test, staging, production, or browser/runtime details.
+      placeholder: Local dev, Node 22, Chrome, macOS
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Safe evidence
+      description: Paste redacted logs, screenshots, or command output if useful.
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed secrets, OTPs, private URLs, real citizen data, and sensitive evidence.
+          required: true
+        - label: This is not an exploitable security vulnerability.
+          required: true

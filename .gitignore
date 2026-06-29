@@ -1,0 +1,27 @@
+.DS_Store
+node_modules/
+dist/
+artifacts/
+output/
+screenshots/
+.playwright-cli/
+.whistle/
+private-assets/
+audit/ux-assessment-*/
+*.log
+*.tmp
+*.local
+*.zip
+*.env
+!.env.example
+*.tsbuildinfo
+
+# Generated standalone exports
+exports/standalone/
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage

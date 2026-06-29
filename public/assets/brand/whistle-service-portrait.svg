@@ -1,0 +1,10 @@
+<svg width="320" height="400" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neutral citizen service illustration">
+  <rect width="320" height="400" rx="56" fill="#FFD21F"/>
+  <circle cx="160" cy="119" r="62" fill="#FFF8D6"/>
+  <path d="M57 338c14-70 52-109 103-109s89 39 103 109H57Z" fill="#C91F1F"/>
+  <path d="M107 116c13-35 34-52 63-52 24 0 42 12 55 37-14-8-31-12-50-12-29 0-52 9-68 27Z" fill="#2B1B00"/>
+  <path d="M108 254h104" stroke="#FFF8D6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M128 285h64" stroke="#FFF8D6" stroke-width="14" stroke-linecap="round"/>
+  <path d="M48 48h224" stroke="#C91F1F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M64 373h192" stroke="#FFF8D6" stroke-width="10" stroke-linecap="round"/>
+</svg>

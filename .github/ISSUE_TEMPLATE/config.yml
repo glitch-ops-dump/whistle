@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/glitch-ops-dump/whistle/security
+    about: Report exploitable vulnerabilities privately. Do not post citizen data, secrets, or evidence in public issues.

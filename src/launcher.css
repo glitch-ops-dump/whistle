@@ -1,0 +1,244 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --launcher-red: #c91f1f;
+  --launcher-yellow: #ffd21f;
+  --launcher-ink: #16181d;
+  --launcher-muted: #475467;
+  --launcher-line: #d9e0ea;
+  --launcher-panel: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #eef2f7;
+  color: var(--launcher-ink);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.launcher-shell {
+  align-content: start;
+  display: grid;
+  gap: 22px;
+  margin: 0 auto;
+  max-width: 1120px;
+  min-height: 100vh;
+  padding: 46px 28px;
+}
+
+.launcher-hero {
+  background: linear-gradient(135deg, #fff7cf 0%, #ffffff 58%, #ffe7e7 100%);
+  border: 1px solid var(--launcher-line);
+  border-radius: 10px;
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+}
+
+.launcher-brand {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.launcher-brand img {
+  background: #fff;
+  border-radius: 10px;
+  height: 64px;
+  object-fit: contain;
+  padding: 8px;
+  width: 64px;
+}
+
+.launcher-brand span,
+.launcher-card span {
+  color: var(--launcher-red);
+  display: block;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.launcher-brand h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: 0;
+  line-height: 0.96;
+  margin: 4px 0 0;
+}
+
+.launcher-hero p {
+  color: var(--launcher-muted);
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 780px;
+}
+
+.launcher-route {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.launcher-step {
+  background: var(--launcher-panel);
+  border: 1px solid var(--launcher-line);
+  border-radius: 10px;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.08);
+  display: grid;
+  gap: 10px;
+  min-height: 238px;
+  padding: 18px;
+}
+
+.launcher-step.story,
+.launcher-step.citizen {
+  grid-column: span 2;
+}
+
+.launcher-step.story {
+  border-top: 8px solid var(--launcher-yellow);
+}
+
+.launcher-step.citizen,
+.launcher-step.console,
+.launcher-step.command {
+  border-top: 8px solid var(--launcher-red);
+}
+
+.launcher-step.admin {
+  border-top: 8px solid #15191f;
+}
+
+.launcher-step-number {
+  align-items: center;
+  background: #15191f;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 950;
+  height: 30px;
+  justify-content: center;
+  width: 42px;
+}
+
+.launcher-step-eyebrow {
+  color: var(--launcher-red);
+  display: block;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.launcher-step strong {
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.05;
+}
+
+.launcher-step p {
+  color: var(--launcher-muted);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.launcher-step b {
+  align-self: end;
+  background: var(--launcher-ink);
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 13px;
+  justify-content: center;
+  min-height: 40px;
+  padding: 11px 13px;
+  width: fit-content;
+}
+
+.launcher-step.citizen b,
+.launcher-step.console b,
+.launcher-step.command b {
+  background: var(--launcher-red);
+}
+
+.launcher-step.story b {
+  background: #8a4b00;
+}
+
+.launcher-secondary {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.launcher-secondary a {
+  background: #fff;
+  border: 1px solid var(--launcher-line);
+  border-radius: 999px;
+  color: var(--launcher-muted);
+  font-size: 13px;
+  font-weight: 850;
+  padding: 10px 14px;
+}
+
+@media (max-width: 760px) {
+  .launcher-shell {
+    padding: 18px;
+  }
+
+  .launcher-route {
+    grid-template-columns: 1fr;
+  }
+
+  .launcher-step.story,
+  .launcher-step.citizen {
+    grid-column: auto;
+  }
+}
+
+.launcher-credentials {
+  background: #fff;
+  border: 1px solid #eadfd2;
+  border-radius: 10px;
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 14px 16px;
+}
+
+.launcher-credentials strong {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.launcher-credentials p,
+.launcher-credentials li {
+  color: var(--launcher-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.launcher-credentials ul {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

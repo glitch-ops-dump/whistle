@@ -1,0 +1,17 @@
+{
+  "name": "Whistle",
+  "short_name": "Whistle",
+  "description": "Citizen reporting and government triage prototype for Tamil Nadu civic issues.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8e1",
+  "theme_color": "#c91f1f",
+  "icons": [
+    {
+      "src": "/assets/brand/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

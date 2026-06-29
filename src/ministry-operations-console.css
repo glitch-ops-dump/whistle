@@ -1,0 +1,813 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  --mo-red: #d0021b;
+  --mo-red-dark: #8e0012;
+  --mo-yellow: #ffbe00;
+  --mo-ink: #171717;
+  --mo-muted: #475467;
+  --mo-soft: #f6f7fb;
+  --mo-panel: #ffffff;
+  --mo-line: #d9dee8;
+  --mo-green: #087443;
+  --mo-blue: #175cd3;
+  --mo-shadow: 0 18px 48px rgba(16, 24, 40, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    linear-gradient(180deg, rgba(255, 190, 0, 0.2), transparent 260px),
+    var(--mo-soft);
+  color: var(--mo-ink);
+  margin: 0;
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.ministry-app {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ministry-header {
+  align-items: center;
+  background: linear-gradient(90deg, var(--mo-yellow), #ffdc63);
+  border-bottom: 5px solid var(--mo-red);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 300px minmax(0, 1fr) 340px;
+  min-height: 78px;
+  padding: 10px 20px;
+}
+
+.ministry-brand,
+.ministry-gov,
+.ministry-user,
+.ministry-profile-card,
+.ministry-toolbar,
+.ministry-search,
+.ministry-refresh,
+.ministry-panel-head,
+.ministry-policy-note {
+  align-items: center;
+  display: flex;
+}
+
+.ministry-brand,
+.ministry-gov {
+  gap: 12px;
+}
+
+.ministry-brand img,
+.ministry-gov img {
+  background: #fff;
+  border-radius: 12px;
+  height: 46px;
+  object-fit: contain;
+  padding: 6px;
+  width: 46px;
+}
+
+.ministry-gov {
+  justify-content: center;
+}
+
+.ministry-brand strong,
+.ministry-gov strong,
+.ministry-user strong,
+.ministry-profile-card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.ministry-gov strong {
+  font-size: 18px;
+}
+
+.ministry-brand span,
+.ministry-gov span,
+.ministry-user span,
+.ministry-user small,
+.ministry-profile-card span,
+.ministry-profile-card small {
+  color: rgba(23, 23, 23, 0.7);
+  display: block;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.35;
+  margin-top: 3px;
+}
+
+.ministry-user {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(208, 2, 27, 0.16);
+  border-radius: 12px;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 9px 10px 9px 12px;
+}
+
+.ministry-role-toggle {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(208, 2, 27, 0.14);
+  border-radius: 999px;
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+}
+
+.ministry-role-toggle button {
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--mo-muted);
+  font-size: 11px;
+  font-weight: 950;
+  min-height: 30px;
+  padding: 0 10px;
+}
+
+.ministry-role-toggle button.active {
+  background: var(--mo-red);
+  color: #fff;
+}
+
+.ministry-shell {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 0;
+  padding: 14px;
+}
+
+.ministry-sidebar {
+  display: grid;
+  gap: 12px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 0;
+}
+
+.ministry-profile-card,
+.ministry-nav,
+.ministry-policy-note,
+.ministry-panel,
+.ministry-kpi {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--mo-line);
+  border-radius: 12px;
+  box-shadow: var(--mo-shadow);
+}
+
+.ministry-profile-card {
+  gap: 12px;
+  padding: 12px;
+}
+
+.ministry-profile-card img {
+  border-radius: 10px;
+  height: 58px;
+  object-fit: cover;
+  width: 48px;
+}
+
+.ministry-nav {
+  align-content: start;
+  display: grid;
+  gap: 8px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.ministry-nav button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--mo-ink);
+  display: grid;
+  gap: 5px 9px;
+  grid-template-columns: 18px minmax(0, 1fr);
+  padding: 12px;
+  text-align: left;
+}
+
+.ministry-nav button svg {
+  grid-row: span 2;
+  margin-top: 1px;
+}
+
+.ministry-nav button.active {
+  background: var(--mo-red);
+  color: #fff;
+}
+
+.ministry-nav span {
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.ministry-nav small {
+  color: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  opacity: 0.95;
+}
+
+.ministry-policy-note {
+  gap: 9px;
+  padding: 12px;
+}
+
+.ministry-policy-note span {
+  color: var(--mo-muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.ministry-main {
+  min-height: 0;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.ministry-toolbar {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--mo-line);
+  border-radius: 12px;
+  box-shadow: var(--mo-shadow);
+  gap: 14px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 14px;
+}
+
+.ministry-toolbar > div:first-child {
+  min-width: 0;
+}
+
+.ministry-toolbar span,
+.ministry-panel-head span,
+.ministry-kpi span,
+.ministry-detail-grid span,
+.ministry-note span {
+  color: var(--mo-red-dark);
+  display: block;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ministry-toolbar h1 {
+  font-size: 28px;
+  line-height: 1.04;
+  margin: 4px 0 0;
+}
+
+.ministry-search {
+  background: #fff;
+  border: 1px solid var(--mo-line);
+  border-radius: 10px;
+  color: var(--mo-muted);
+  gap: 8px;
+  min-height: 42px;
+  min-width: 320px;
+  padding: 0 12px;
+}
+
+.ministry-search input {
+  border: 0;
+  color: var(--mo-ink);
+  font-size: 13px;
+  font-weight: 800;
+  min-width: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.ministry-refresh {
+  background: var(--mo-ink);
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  gap: 7px;
+  min-height: 42px;
+  padding: 0 14px;
+}
+
+.ministry-kpi-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+
+.ministry-kpi {
+  display: grid;
+  gap: 6px;
+  min-height: 124px;
+  padding: 12px;
+}
+
+.ministry-kpi svg {
+  color: var(--mo-red);
+}
+
+.ministry-kpi strong {
+  font-size: 26px;
+  font-weight: 950;
+  line-height: 0.95;
+}
+
+.ministry-kpi small {
+  color: var(--mo-muted);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.ministry-kpi.good svg {
+  color: var(--mo-green);
+}
+
+.ministry-kpi.warn svg {
+  color: #b54708;
+}
+
+.ministry-kpi.danger svg {
+  color: var(--mo-red);
+}
+
+.ministry-two-col {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  min-height: 0;
+}
+
+.ministry-two-col.wide-right {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+}
+
+.ministry-two-col.wide-left {
+  grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr);
+}
+
+.ministry-panel {
+  min-height: 0;
+  padding: 14px;
+}
+
+.ministry-panel-head {
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.ministry-panel-head h2 {
+  font-size: 20px;
+  line-height: 1.1;
+  margin: 3px 0 0;
+}
+
+.ministry-panel-head.compact h2 {
+  font-size: 17px;
+}
+
+.ministry-districts,
+.ministry-ticket-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  max-height: calc(100vh - 252px);
+}
+
+.ministry-district-list,
+.ministry-ticket-list {
+  display: grid;
+  gap: 8px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.ministry-district-list button,
+.ministry-ticket-row {
+  align-items: center;
+  background: #fbfcff;
+  border: 1px solid var(--mo-line);
+  border-radius: 10px;
+  color: var(--mo-ink);
+  display: grid;
+  min-height: 70px;
+  padding: 10px;
+  text-align: left;
+}
+
+.ministry-district-list button {
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) 112px;
+}
+
+.ministry-district-list button.active,
+.ministry-ticket-row.active {
+  border-color: var(--mo-red);
+  box-shadow: 0 0 0 3px rgba(208, 2, 27, 0.1);
+}
+
+.ministry-district-list strong,
+.ministry-ticket-row strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.ministry-district-list small,
+.ministry-ticket-row small {
+  color: var(--mo-muted);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+.ministry-district-list .hot,
+.ministry-district-list .ok,
+.ministry-ticket-row b,
+.ministry-sla {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 950;
+  justify-content: center;
+  line-height: 1;
+  padding: 8px 9px;
+  white-space: nowrap;
+}
+
+.ministry-district-list .hot {
+  background: #fee4e2;
+  color: var(--mo-red-dark);
+}
+
+.ministry-district-list .ok {
+  background: #dcfae6;
+  color: var(--mo-green);
+}
+
+.ministry-ticket-row {
+  gap: 10px;
+  grid-template-columns: 86px minmax(0, 1fr) 112px;
+}
+
+.ministry-ticket-row b {
+  background: #eef2f7;
+  color: #475467;
+}
+
+.ministry-ticket-row b.ministry {
+  background: #e8f1ff;
+  color: var(--mo-blue);
+}
+
+.ministry-ticket-row b.cm_cell {
+  background: #fee4e2;
+  color: var(--mo-red-dark);
+}
+
+.ministry-sla.good {
+  background: #dcfae6;
+  color: var(--mo-green);
+}
+
+.ministry-sla.warn {
+  background: #fff3cd;
+  color: #b54708;
+}
+
+.ministry-sla.danger {
+  background: #fee4e2;
+  color: var(--mo-red-dark);
+}
+
+.ministry-sla.done {
+  background: #eef2f7;
+  color: #475467;
+}
+
+.ministry-workspace {
+  display: grid;
+}
+
+.ministry-workspace h3 {
+  font-size: 22px;
+  line-height: 1.12;
+  margin: 2px 0 8px;
+}
+
+.ministry-workspace p {
+  color: var(--mo-muted);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+.ministry-queue-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.ministry-queue-stack span {
+  background: #eef2f7;
+  border-radius: 999px;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 8px 10px;
+}
+
+.ministry-queue-stack .primary {
+  background: #fff3cd;
+  color: #7a2e0e;
+}
+
+.ministry-detail-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+
+.ministry-pattern-stack {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.78fr);
+  margin-bottom: 12px;
+}
+
+.ministry-detail-grid div {
+  background: #fbfcff;
+  border: 1px solid var(--mo-line);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ministry-detail-grid strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.ministry-action-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 10px;
+}
+
+.ministry-action-grid button {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--mo-line);
+  border-radius: 10px;
+  color: var(--mo-ink);
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.ministry-action-grid button.active {
+  background: var(--mo-red);
+  border-color: var(--mo-red);
+  color: #fff;
+}
+
+.ministry-note {
+  display: grid;
+  gap: 6px;
+}
+
+.ministry-note textarea {
+  border: 1px solid var(--mo-line);
+  border-radius: 10px;
+  min-height: 96px;
+  outline: 0;
+  padding: 10px;
+  resize: vertical;
+}
+
+.ministry-submit {
+  background: var(--mo-ink);
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 950;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 0 16px;
+}
+
+.ministry-footnote {
+  color: var(--mo-muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-top: 9px;
+}
+
+.ministry-notice,
+.ministry-error,
+.ministry-empty {
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.45;
+  padding: 12px;
+}
+
+.ministry-notice.success {
+  background: #dcfae6;
+  color: var(--mo-green);
+  margin-top: 10px;
+}
+
+.ministry-notice.error,
+.ministry-error {
+  background: #fee4e2;
+  color: var(--mo-red-dark);
+  margin-bottom: 12px;
+}
+
+.ministry-error.subtle {
+  margin-top: 12px;
+}
+
+.ministry-empty {
+  background: #f8fafc;
+  color: var(--mo-muted);
+}
+
+.ministry-empty.tight {
+  padding: 10px;
+}
+
+.ministry-timeline {
+  display: grid;
+  gap: 10px;
+  max-height: calc(100vh - 310px);
+  overflow: auto;
+}
+
+.ministry-timeline > div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 12px minmax(0, 1fr);
+}
+
+.ministry-timeline > div > span {
+  background: var(--mo-red);
+  border-radius: 999px;
+  height: 10px;
+  margin-top: 4px;
+  width: 10px;
+}
+
+.ministry-timeline strong {
+  display: block;
+  font-size: 13px;
+}
+
+.ministry-timeline small {
+  color: var(--mo-muted);
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.ministry-timeline p {
+  color: var(--mo-ink);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+  margin: 5px 0 0;
+}
+
+.ministry-mode-banner {
+  color: var(--mo-muted);
+  font-size: 12px;
+  font-weight: 850;
+  margin-top: 10px;
+  text-align: right;
+}
+
+@media (max-width: 1240px) {
+  .ministry-kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .ministry-header {
+    gap: 10px;
+    grid-template-columns: 210px minmax(0, 1fr) 250px;
+    padding: 8px 12px;
+  }
+
+  .ministry-brand img,
+  .ministry-gov img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .ministry-gov {
+    justify-content: flex-start;
+  }
+
+  .ministry-gov strong {
+    font-size: 14px;
+  }
+
+  .ministry-user {
+    padding: 7px 8px;
+  }
+
+  .ministry-user small {
+    display: none;
+  }
+
+  .ministry-role-toggle button {
+    font-size: 10px;
+    padding: 0 8px;
+  }
+
+  .ministry-shell {
+    gap: 10px;
+    grid-template-columns: 220px minmax(0, 1fr);
+    padding: 10px;
+  }
+
+  .ministry-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(190px, 0.75fr) auto;
+  }
+
+  .ministry-toolbar h1 {
+    font-size: 24px;
+  }
+
+  .ministry-search {
+    min-width: 0;
+  }
+
+  .ministry-refresh {
+    min-width: 78px;
+    padding: 0 12px;
+  }
+
+  .ministry-ticket-row {
+    grid-template-columns: 74px minmax(0, 1fr) 86px;
+  }
+
+  .ministry-district-list button {
+    grid-template-columns: minmax(0, 1fr) 92px;
+  }
+
+  .ministry-pattern-stack {
+    grid-template-columns: 1fr;
+  }
+}

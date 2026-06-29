@@ -1,0 +1,9 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neutral civic service mark">
+  <rect width="256" height="256" rx="48" fill="#FFF8D6"/>
+  <path d="M128 31 211 78v100l-83 47-83-47V78l83-47Z" fill="#FFD21F" stroke="#C91F1F" stroke-width="12"/>
+  <path d="M83 105h90" stroke="#2B1B00" stroke-width="12" stroke-linecap="round"/>
+  <path d="M96 130h64" stroke="#2B1B00" stroke-width="12" stroke-linecap="round"/>
+  <path d="M107 155h42" stroke="#2B1B00" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="128" cy="77" r="18" fill="#C91F1F"/>
+  <path d="M73 190h110" stroke="#C91F1F" stroke-width="12" stroke-linecap="round"/>
+</svg>

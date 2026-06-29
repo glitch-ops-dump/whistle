@@ -1,0 +1,129 @@
+{
+  "kind": "whistle-jurisdiction-pack",
+  "schemaVersion": "0.1.0",
+  "packId": "core.whistle",
+  "packName": "Whistle Core Governance Template",
+  "status": "reference-template",
+  "authoritative": false,
+  "description": "Generic Whistle configuration primitives with no country, state, or city assumptions.",
+  "license": "MIT for original Whistle configuration text; adopter must verify any imported external data licenses.",
+  "metadata": {
+    "createdFor": "Open-source Whistle deployments",
+    "dataScope": "generic-product-template",
+    "approvalAuthorityLabel": "Program Owner",
+    "notes": "Use this as the base for one-state, one-country, city, or office-level jurisdiction packs."
+  },
+  "jurisdictionKinds": [
+    {
+      "id": "root",
+      "label": "Deployment Root",
+      "description": "Top-level configured jurisdiction for one Whistle deployment."
+    },
+    {
+      "id": "administrative_area",
+      "label": "Administrative Area",
+      "description": "A general government geography such as state, district, province, city, county, or region."
+    },
+    {
+      "id": "representative_area",
+      "label": "Representative Area",
+      "description": "An elected representative's constituency, ward, division, district, or similar area."
+    },
+    {
+      "id": "local_area",
+      "label": "Local Area",
+      "description": "A ward, panchayat, municipality, village, borough, zone, or local service area."
+    },
+    {
+      "id": "portfolio",
+      "label": "Portfolio",
+      "description": "A ministry, department, agency, board, or service-delivery portfolio."
+    },
+    {
+      "id": "protected_queue",
+      "label": "Protected Queue",
+      "description": "A restricted non-geographic scope for corruption, vigilance, whistleblower, or sensitive complaints."
+    },
+    {
+      "id": "system",
+      "label": "System Scope",
+      "description": "A non-public scope for Admin, jobs, integrations, and platform operations."
+    }
+  ],
+  "officeTypes": [
+    {
+      "id": "admin",
+      "label": "Admin Console",
+      "defaultActions": ["admin.config.read", "admin.config.write", "admin.config.approve", "access.manage", "audit.read"]
+    },
+    {
+      "id": "command_cell",
+      "label": "Command Cell",
+      "defaultActions": ["dashboard.read", "ticket.read", "field.action.write", "audit.read", "rejection.review.write"]
+    },
+    {
+      "id": "verification",
+      "label": "Verification Team",
+      "defaultActions": ["verification.queue", "verification.decision", "ticket.create", "ticket.read"]
+    },
+    {
+      "id": "portfolio_owner",
+      "label": "Portfolio Owner",
+      "defaultActions": ["dashboard.read", "ticket.read", "field.action.write"]
+    },
+    {
+      "id": "representative",
+      "label": "Representative Office",
+      "defaultActions": ["dashboard.read", "ticket.read", "field.action.write"]
+    },
+    {
+      "id": "local_owner",
+      "label": "Local Owner",
+      "defaultActions": ["dashboard.read", "ticket.read", "field.action.write"]
+    },
+    {
+      "id": "worker",
+      "label": "Worker Runtime",
+      "defaultActions": ["jobs.sla_escalations.run", "jobs.evidence_scans.run", "jobs.notifications.run"]
+    }
+  ],
+  "scopeRules": {
+    "matchMode": "node-and-descendants",
+    "statewideEquivalent": "root",
+    "protectedComplaintsBypassLocal": true,
+    "secondaryVisibilityAfterEscalation": true,
+    "criticalJurisdictionChangesRequireApproval": true
+  },
+  "defaultSlaStages": [
+    {
+      "id": "verification",
+      "label": "Verification SLA",
+      "durationDays": 2
+    },
+    {
+      "id": "local",
+      "label": "Local / Representative SLA",
+      "durationDays": 7
+    },
+    {
+      "id": "portfolio",
+      "label": "Portfolio / Department SLA",
+      "durationDays": 10
+    },
+    {
+      "id": "command_cell",
+      "label": "Command Cell SLA",
+      "durationDays": 7
+    },
+    {
+      "id": "rejection_review",
+      "label": "Rejection Review SLA",
+      "durationDays": 7
+    },
+    {
+      "id": "protected_screening",
+      "label": "Protected Screening SLA",
+      "durationDays": 3
+    }
+  ]
+}

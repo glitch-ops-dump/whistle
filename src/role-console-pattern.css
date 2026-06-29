@@ -1,0 +1,259 @@
+.role-pattern {
+  --role-accent: #d0021b;
+  --role-accent-dark: #8e0012;
+  --role-good: #0f7d3f;
+  --role-warn: #a35c00;
+  --role-danger: #b42318;
+  --role-panel: #fffaf1;
+  --role-soft: #fff4c9;
+  --role-line: #eadfd2;
+  --role-ink: #211716;
+  /* --role-muted doubles as the SLA-dot background; --role-muted-text is the
+     AA-contrast text variant. Keep them separate (UX audit item 1.1). */
+  --role-muted: #72635c;
+  --role-muted-text: #564a42;
+  background: #fffdf8;
+  border: 1px solid var(--role-line);
+  border-radius: 8px;
+  color: var(--role-ink);
+  box-shadow: 0 12px 28px rgba(35, 24, 20, 0.08);
+}
+
+.verification-app .role-pattern {
+  --role-accent: #2563eb;
+  --role-accent-dark: #1d4ed8;
+  --role-panel: #ffffff;
+  --role-soft: #eff6ff;
+  --role-line: #dbeafe;
+  --role-ink: #172033;
+  --role-muted: #60708a;
+  --role-muted-text: #46566f;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.08);
+}
+
+.mla-app .role-pattern {
+  --role-accent: var(--mla-red);
+  --role-accent-dark: var(--mla-red-dark);
+  --role-panel: var(--mla-panel);
+  --role-soft: var(--mla-yellow-soft);
+  --role-line: var(--mla-line);
+  --role-ink: var(--mla-ink);
+  --role-muted: var(--mla-muted);
+  --role-muted-text: var(--mla-muted);
+}
+
+.ministry-app .role-pattern {
+  --role-accent: #0f766e;
+  --role-accent-dark: #115e59;
+  --role-panel: #f8fdfc;
+  --role-soft: #dff7f3;
+  --role-line: #cce7e2;
+  --role-ink: #153230;
+  --role-muted: #5d716e;
+  --role-muted-text: #3f5450;
+}
+
+.cm-app .role-pattern {
+  --role-accent: var(--cm-red);
+  --role-accent-dark: var(--cm-red-dark);
+  --role-panel: var(--cm-panel);
+  --role-soft: var(--cm-yellow-soft);
+  --role-line: var(--cm-line);
+  --role-ink: var(--cm-ink);
+  --role-muted: var(--cm-muted);
+  --role-muted-text: var(--cm-muted);
+}
+
+.role-pattern-summary {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.role-pattern-head {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.role-pattern-head.compact {
+  margin-bottom: 12px;
+}
+
+.role-pattern-head span,
+.role-pattern-card span,
+.role-citizen-update span {
+  color: var(--role-accent-dark);
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.role-pattern-head h2 {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.16;
+  margin: 4px 0 0;
+}
+
+.role-pattern-head > strong {
+  background: var(--role-soft);
+  border: 1px solid var(--role-line);
+  border-radius: 999px;
+  color: var(--role-accent-dark);
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  max-width: 210px;
+  padding: 8px 11px;
+  text-align: right;
+}
+
+.role-pattern-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.role-pattern-card {
+  background: var(--role-panel);
+  border: 1px solid var(--role-line);
+  border-radius: 8px;
+  min-height: 118px;
+  padding: 12px;
+}
+
+.role-pattern-card p {
+  color: var(--role-ink);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin: 8px 0 0;
+}
+
+.role-sla-card {
+  padding: 16px;
+}
+
+.role-sla-list {
+  display: grid;
+  gap: 10px;
+}
+
+.role-sla-step {
+  align-items: flex-start;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 14px minmax(0, 1fr);
+  position: relative;
+}
+
+.role-sla-step:not(:last-child)::after {
+  background: var(--role-line);
+  content: "";
+  height: calc(100% + 10px);
+  left: 6px;
+  position: absolute;
+  top: 13px;
+  width: 2px;
+}
+
+.role-sla-dot {
+  background: var(--role-muted);
+  border: 2px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px var(--role-line);
+  height: 14px;
+  margin-top: 3px;
+  position: relative;
+  width: 14px;
+  z-index: 1;
+}
+
+.role-sla-step.done .role-sla-dot {
+  background: var(--role-good);
+}
+
+.role-sla-step.active .role-sla-dot {
+  background: var(--role-accent);
+}
+
+.role-sla-step.watch .role-sla-dot {
+  background: var(--role-warn);
+}
+
+.role-sla-step.blocked .role-sla-dot {
+  background: var(--role-danger);
+}
+
+.role-sla-step strong {
+  display: block;
+  font-size: 0.94rem;
+  line-height: 1.25;
+}
+
+.role-sla-step small {
+  color: var(--role-muted-text);
+  display: block;
+  font-size: 0.76rem;
+  margin-top: 2px;
+}
+
+.role-sla-step p {
+  color: var(--role-muted-text);
+  font-size: 0.84rem;
+  line-height: 1.4;
+  margin: 5px 0 0;
+}
+
+.role-citizen-update {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+
+.role-citizen-update div {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.role-citizen-update strong {
+  background: var(--role-soft);
+  border: 1px solid var(--role-line);
+  border-radius: 999px;
+  color: var(--role-accent-dark);
+  font-size: 0.78rem;
+  padding: 7px 10px;
+}
+
+.role-citizen-update p {
+  color: var(--role-ink);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .role-pattern-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .role-pattern-head,
+  .role-citizen-update div {
+    display: grid;
+  }
+
+  .role-pattern-head > strong {
+    max-width: none;
+    text-align: left;
+  }
+
+  .role-pattern-grid {
+    grid-template-columns: 1fr;
+  }
+}

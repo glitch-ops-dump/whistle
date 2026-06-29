@@ -1,0 +1,12 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Whistle prototype logo">
+  <rect width="256" height="256" rx="56" fill="#C91F1F"/>
+  <circle cx="128" cy="128" r="92" fill="#FFD21F"/>
+  <path d="M61 128c0-36.451 29.549-66 66-66h34c18.778 0 34 15.222 34 34v64c0 18.778-15.222 34-34 34h-34c-36.451 0-66-29.549-66-66Z" fill="#FFF8D6"/>
+  <path d="M74 120c0-22.091 17.909-40 40-40h47c8.837 0 16 7.163 16 16v64c0 8.837-7.163 16-16 16h-47c-22.091 0-40-17.909-40-40v-16Z" fill="#C91F1F"/>
+  <path d="M88 128c0-15.464 12.536-28 28-28h49v56h-49c-15.464 0-28-12.536-28-28Z" fill="#FFD21F"/>
+  <path d="M150 101h45c8.284 0 15 6.716 15 15v24c0 8.284-6.716 15-15 15h-45v-54Z" fill="#FFF8D6"/>
+  <path d="M65 70 44 49" stroke="#FFD21F" stroke-width="14" stroke-linecap="round"/>
+  <path d="M191 70 212 49" stroke="#FFD21F" stroke-width="14" stroke-linecap="round"/>
+  <path d="M128 44V22" stroke="#FFD21F" stroke-width="14" stroke-linecap="round"/>
+  <path d="M92 206h72" stroke="#FFF8D6" stroke-width="12" stroke-linecap="round"/>
+</svg>

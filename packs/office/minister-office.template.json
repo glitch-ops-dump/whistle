@@ -1,0 +1,45 @@
+{
+  "kind": "whistle-jurisdiction-pack",
+  "schemaVersion": "0.1.0",
+  "packId": "office.minister.template",
+  "packName": "Minister Office Fork Template",
+  "status": "office-template",
+  "authoritative": false,
+  "description": "Template for a separate Whistle fork used by one minister office for its own portfolio or department scope.",
+  "license": "MIT for original Whistle configuration text; office adopters must verify portfolio, department, and approval data.",
+  "metadata": {
+    "deploymentMode": "single-office-fork",
+    "rootScope": "one or more ministries/departments",
+    "approvalAuthorityLabel": "Minister Office Admin",
+    "notes": "Replace placeholder ministries, departments, districts, field offices, and teams before use."
+  },
+  "extends": ["core.whistle", "india.base"],
+  "jurisdictionNodes": [
+    { "id": "office-root-ministry", "kind": "ministry", "code": "REPLACE_WITH_MINISTRY_CODE", "name": "Replace With Ministry / Portfolio Name" },
+    { "id": "office-department-1", "kind": "department", "code": "REPLACE_WITH_DEPARTMENT_CODE_1", "name": "Replace With Department 1" },
+    { "id": "office-department-2", "kind": "department", "code": "REPLACE_WITH_DEPARTMENT_CODE_2", "name": "Replace With Department 2" },
+    { "id": "office-field-region-1", "kind": "field_office", "code": "REPLACE_WITH_FIELD_OFFICE_CODE_1", "name": "Replace With Field Office / District Unit 1" }
+  ],
+  "jurisdictionEdges": [
+    { "parentId": "office-root-ministry", "childId": "office-department-1", "relationship": "portfolio_contains" },
+    { "parentId": "office-root-ministry", "childId": "office-department-2", "relationship": "portfolio_contains" },
+    { "parentId": "office-department-1", "childId": "office-field-region-1", "relationship": "field_unit" }
+  ],
+  "officeScopes": [
+    { "officeId": "office-minister-team", "officeType": "minister_office", "label": "Minister Office Team", "scopeNodeId": "office-root-ministry", "role": "minister" },
+    { "officeId": "office-department-team-1", "officeType": "department_officer", "label": "Department Team 1", "scopeNodeId": "office-department-1", "role": "department_officer" },
+    { "officeId": "office-field-team-1", "officeType": "department_officer", "label": "Field Office Team 1", "scopeNodeId": "office-field-region-1", "role": "department_officer" },
+    { "officeId": "office-verification", "officeType": "verification_team", "label": "Office Intake Team", "scopeNodeId": "office-root-ministry", "role": "verification" }
+  ],
+  "disabledAssumptions": [
+    "statewide_cm_cell",
+    "unrelated_ministry_visibility",
+    "statewide_public_reporting"
+  ],
+  "approvalRules": {
+    "jurisdictionCatalogChange": "critical",
+    "officeScopeChange": "critical",
+    "portfolioScopeChange": "critical",
+    "requiredApprover": "Minister Office Admin"
+  }
+}

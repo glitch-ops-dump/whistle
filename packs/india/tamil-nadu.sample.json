@@ -1,0 +1,55 @@
+{
+  "kind": "whistle-jurisdiction-pack",
+  "schemaVersion": "0.1.0",
+  "packId": "india.tamil-nadu.sample",
+  "packName": "Tamil Nadu Sample Jurisdiction Pack",
+  "status": "sample-demo",
+  "authoritative": false,
+  "description": "Partial Tamil Nadu sample pack for Whistle demos and implementation reference. This is not a complete or official state catalog.",
+  "license": "MIT for original Whistle configuration text; adopters must verify all official data sources and licenses before production use.",
+  "metadata": {
+    "country": "India",
+    "state": "Tamil Nadu",
+    "dataScope": "partial-demo-sample",
+    "approvalAuthorityLabel": "CM Cell",
+    "notes": "Contains a small illustrative subset only. Replace with verified districts, constituencies, wards/local bodies, ministries, departments, and office mappings before production."
+  },
+  "extends": ["core.whistle", "india.base"],
+  "jurisdictionNodes": [
+    { "id": "in-tn", "kind": "state_or_union_territory", "code": "IN-TN", "name": "Tamil Nadu" },
+    { "id": "in-tn-chennai", "kind": "district", "code": "TN-DIST-CHENNAI", "name": "Chennai" },
+    { "id": "in-tn-madurai", "kind": "district", "code": "TN-DIST-MADURAI", "name": "Madurai" },
+    { "id": "in-tn-const-velachery", "kind": "assembly_constituency", "code": "TN-AC-SAMPLE-VELACHERY", "name": "Velachery" },
+    { "id": "in-tn-const-madurai-east", "kind": "assembly_constituency", "code": "TN-AC-SAMPLE-MADURAI-EAST", "name": "Madurai East" },
+    { "id": "in-tn-ward-48", "kind": "ward", "code": "TN-WARD-SAMPLE-48", "name": "Ward 48" },
+    { "id": "in-tn-ward-52", "kind": "ward", "code": "TN-WARD-SAMPLE-52", "name": "Ward 52" },
+    { "id": "in-tn-min-maws", "kind": "ministry", "code": "TN-MIN-SAMPLE-MAWS", "name": "Municipal Administration and Water Supply" },
+    { "id": "in-tn-min-rural", "kind": "ministry", "code": "TN-MIN-SAMPLE-RDPR", "name": "Rural Development and Panchayat Raj" },
+    { "id": "in-tn-min-highways", "kind": "ministry", "code": "TN-MIN-SAMPLE-HIGHWAYS", "name": "Highways and Minor Ports" },
+    { "id": "in-tn-min-energy", "kind": "ministry", "code": "TN-MIN-SAMPLE-ENERGY", "name": "Energy" },
+    { "id": "in-tn-dept-maws-field", "kind": "department", "code": "TN-DEPT-SAMPLE-MAWS-FIELD", "name": "Municipal Field Operations" }
+  ],
+  "jurisdictionEdges": [
+    { "parentId": "in-tn", "childId": "in-tn-chennai", "relationship": "contains" },
+    { "parentId": "in-tn", "childId": "in-tn-madurai", "relationship": "contains" },
+    { "parentId": "in-tn-chennai", "childId": "in-tn-const-velachery", "relationship": "contains" },
+    { "parentId": "in-tn-madurai", "childId": "in-tn-const-madurai-east", "relationship": "contains" },
+    { "parentId": "in-tn-const-velachery", "childId": "in-tn-ward-48", "relationship": "contains" },
+    { "parentId": "in-tn-const-madurai-east", "childId": "in-tn-ward-52", "relationship": "contains" },
+    { "parentId": "in-tn-min-maws", "childId": "in-tn-dept-maws-field", "relationship": "portfolio_contains" }
+  ],
+  "officeScopes": [
+    { "officeId": "tn-cm-cell", "officeType": "cm_cell", "label": "Tamil Nadu CM Cell", "scopeNodeId": "in-tn", "role": "cm_cell" },
+    { "officeId": "tn-verification", "officeType": "verification_team", "label": "Tamil Nadu Verification Team", "scopeNodeId": "in-tn", "role": "verification" },
+    { "officeId": "tn-minister-maws", "officeType": "minister_office", "label": "MAWS Minister Team", "scopeNodeId": "in-tn-min-maws", "role": "minister" },
+    { "officeId": "tn-dept-maws-field", "officeType": "department_officer", "label": "MAWS Department Officer Team", "scopeNodeId": "in-tn-dept-maws-field", "role": "department_officer" },
+    { "officeId": "tn-mla-velachery", "officeType": "mla_office", "label": "Velachery MLA Team", "scopeNodeId": "in-tn-const-velachery", "role": "mla" },
+    { "officeId": "tn-councillor-ward-48", "officeType": "councillor_office", "label": "Ward 48 Local Owner", "scopeNodeId": "in-tn-ward-48", "role": "councillor" }
+  ],
+  "approvalRules": {
+    "jurisdictionCatalogChange": "critical",
+    "officeScopeChange": "critical",
+    "routingScopeChange": "critical",
+    "requiredApprover": "CM Cell"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "kind": "whistle-jurisdiction-pack",
+  "schemaVersion": "0.1.0",
+  "packId": "india.base",
+  "packName": "India Base Governance Template",
+  "status": "sample-template",
+  "authoritative": false,
+  "description": "Reusable India-oriented governance vocabulary for Whistle deployments. This is not official live government data.",
+  "license": "MIT for original Whistle configuration text; adopters must verify official data sources and licenses before production use.",
+  "metadata": {
+    "country": "India",
+    "dataScope": "base-template-only",
+    "approvalAuthorityLabel": "State Command / CM Cell",
+    "notes": "Use this as a starter vocabulary. State-specific packs must verify actual boundaries, portfolios, departments, and office mappings."
+  },
+  "extends": ["core.whistle"],
+  "jurisdictionKinds": [
+    { "id": "country", "label": "Country" },
+    { "id": "state_or_union_territory", "label": "State / Union Territory" },
+    { "id": "district", "label": "District" },
+    { "id": "taluk_or_block", "label": "Taluk / Block" },
+    { "id": "assembly_constituency", "label": "Assembly Constituency" },
+    { "id": "parliamentary_constituency", "label": "Parliamentary Constituency" },
+    { "id": "urban_local_body", "label": "Urban Local Body" },
+    { "id": "municipality_or_corporation_zone", "label": "Municipality / Corporation Zone" },
+    { "id": "ward", "label": "Ward" },
+    { "id": "panchayat", "label": "Panchayat" },
+    { "id": "village", "label": "Village" },
+    { "id": "ministry", "label": "Ministry" },
+    { "id": "department", "label": "Department" },
+    { "id": "board_or_agency", "label": "Board / Agency" },
+    { "id": "field_office", "label": "Field Office" }
+  ],
+  "officeTypes": [
+    { "id": "cm_cell", "label": "CM Cell / State Command", "scopeKind": "state_or_union_territory" },
+    { "id": "minister_office", "label": "Minister Office", "scopeKind": "ministry" },
+    { "id": "department_officer", "label": "Department Officer", "scopeKind": "department" },
+    { "id": "mla_office", "label": "MLA Office", "scopeKind": "assembly_constituency" },
+    { "id": "mp_office", "label": "MP Office", "scopeKind": "parliamentary_constituency" },
+    { "id": "councillor_office", "label": "Councillor / Ward Office", "scopeKind": "ward" },
+    { "id": "panchayat_representative", "label": "Panchayat / Local Representative", "scopeKind": "panchayat" },
+    { "id": "verification_team", "label": "Verification / Intake Team", "scopeKind": "state_or_union_territory" }
+  ],
+  "departmentTemplates": [
+    "Revenue",
+    "Home / Police",
+    "Health and Family Welfare",
+    "School Education",
+    "Higher Education",
+    "Transport",
+    "Energy / Electricity",
+    "Public Works / Roads",
+    "Water Supply",
+    "Municipal Administration",
+    "Rural Development and Panchayat Raj",
+    "Food and Civil Supplies",
+    "Social Welfare",
+    "Agriculture",
+    "Environment",
+    "Housing and Urban Development",
+    "Labour",
+    "Disaster Management",
+    "Information Technology",
+    "Women and Child Development"
+  ],
+  "routingTemplate": {
+    "normalCivicPath": ["verification_team", "local_owner_or_mla_office", "department_or_minister_office", "cm_cell"],
+    "rejectionPath": ["verification_team", "cm_cell_rejection_review"],
+    "protectedPath": ["verification_team", "protected_screening", "cm_cell_or_authorized_vigilance"]
+  },
+  "approvalRules": {
+    "jurisdictionCatalogChange": "critical",
+    "officeScopeChange": "critical",
+    "departmentTemplateChange": "critical",
+    "recommendedApprover": "CM Cell / State Command"
+  }
+}

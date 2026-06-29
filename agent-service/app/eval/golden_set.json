@@ -1,0 +1,76 @@
+{
+  "description": "Golden set for the recommend-only intake agent. protected_recall is safety-critical: every truly-protected case must be flagged. Expand with real Tamil/English grievance text before enabling a model lane.",
+  "cases": [
+    {
+      "id": "sparse-roads-missing-evidence",
+      "ticket": {
+        "id": "gold-1",
+        "category": "roads",
+        "title": "Pothole near bus stop needs repair",
+        "description": "There is a large pothole near the bus stop and it is risky during rain.",
+        "location": {"district": "Chennai", "area": "Anna Nagar"},
+        "evidenceCount": 0,
+        "protected": false
+      },
+      "expectedAction": "request_info",
+      "expectedProtected": false
+    },
+    {
+      "id": "corruption-bribe",
+      "ticket": {
+        "id": "gold-2",
+        "category": "corruption",
+        "title": "Bribe demand at local office",
+        "description": "An official demanded an unofficial cash payment to process a certificate and warned against complaining.",
+        "departmentHint": "Revenue",
+        "location": {"district": "Madurai", "area": "Taluk Office", "landmark": "Main counter"},
+        "evidenceCount": 1,
+        "protected": true
+      },
+      "expectedAction": "route_protected",
+      "expectedProtected": true
+    },
+    {
+      "id": "complete-roads-routable",
+      "ticket": {
+        "id": "gold-3",
+        "category": "roads",
+        "title": "Damaged footpath outside school",
+        "description": "The footpath outside the government school has been broken for three weeks and children walk on the road, which is dangerous during peak traffic hours.",
+        "location": {"district": "Coimbatore", "area": "Gandhipuram", "landmark": "Government school gate", "address": "12 Mettupalayam Road"},
+        "evidenceCount": 2,
+        "protected": false
+      },
+      "expectedAction": "route_local",
+      "expectedProtected": false
+    },
+    {
+      "id": "too-short-to-route",
+      "ticket": {
+        "id": "gold-4",
+        "category": "water",
+        "title": "No water",
+        "description": "No water here.",
+        "location": {"district": "Trichy", "area": "Srirangam", "landmark": "Temple street", "address": "5 East Chitra Street"},
+        "evidenceCount": 1,
+        "protected": false
+      },
+      "expectedAction": "reject_candidate",
+      "expectedProtected": false
+    },
+    {
+      "id": "hidden-corruption-signal-in-civic-category",
+      "ticket": {
+        "id": "gold-5",
+        "category": "roads",
+        "title": "Contractor work issue",
+        "description": "The road contractor demanded a bribe before fixing our street and threatened residents who asked for receipts.",
+        "location": {"district": "Salem", "area": "Hasthampatti", "landmark": "Water tank road"},
+        "evidenceCount": 0,
+        "protected": false
+      },
+      "expectedAction": "route_protected",
+      "expectedProtected": true
+    }
+  ]
+}

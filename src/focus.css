@@ -1,0 +1,25 @@
+/* Global keyboard focus indicator (UX audit item 1.2, WCAG 2.4.7).
+   Imported by every entry surface. Uses :focus-visible so mouse/touch
+   interaction stays visually unchanged; only keyboard focus draws the ring.
+   The two-layer ring (light inner ring via box-shadow + dark outline) stays
+   visible on warm-yellow, white, red, and near-black backgrounds alike. */
+
+:focus-visible {
+  outline: 3px solid #0b57d0;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff;
+  border-radius: 2px;
+}
+
+/* Inputs/selects/textareas set `outline: none` for mouse focus in several
+   stylesheets; restore a visible ring for keyboard focus specifically. */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+/* match .auth-form input:focus (auth.css) specificity so the keyboard ring
+   beats its low-contrast yellow mouse-focus outline */
+.auth-form input:focus-visible,
+.auth-form select:focus-visible {
+  outline: 3px solid #0b57d0;
+  outline-offset: 1px;
+}

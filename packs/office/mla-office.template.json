@@ -1,0 +1,43 @@
+{
+  "kind": "whistle-jurisdiction-pack",
+  "schemaVersion": "0.1.0",
+  "packId": "office.mla.template",
+  "packName": "MLA Office Fork Template",
+  "status": "office-template",
+  "authoritative": false,
+  "description": "Template for a separate Whistle fork used by one MLA office for its own constituency.",
+  "license": "MIT for original Whistle configuration text; office adopters must verify local data and approval rules.",
+  "metadata": {
+    "deploymentMode": "single-office-fork",
+    "rootScope": "one assembly constituency",
+    "approvalAuthorityLabel": "MLA Office Admin",
+    "notes": "Replace placeholder codes, names, wards, departments, and teams before use."
+  },
+  "extends": ["core.whistle", "india.base"],
+  "jurisdictionNodes": [
+    { "id": "office-root-constituency", "kind": "assembly_constituency", "code": "REPLACE_WITH_CONSTITUENCY_CODE", "name": "Replace With Constituency Name" },
+    { "id": "office-ward-1", "kind": "ward", "code": "REPLACE_WITH_WARD_CODE_1", "name": "Replace With Ward / Local Body 1" },
+    { "id": "office-ward-2", "kind": "ward", "code": "REPLACE_WITH_WARD_CODE_2", "name": "Replace With Ward / Local Body 2" },
+    { "id": "office-local-department-1", "kind": "department", "code": "REPLACE_WITH_LOCAL_DEPT_CODE", "name": "Replace With Local Department / Field Office" }
+  ],
+  "jurisdictionEdges": [
+    { "parentId": "office-root-constituency", "childId": "office-ward-1", "relationship": "contains" },
+    { "parentId": "office-root-constituency", "childId": "office-ward-2", "relationship": "contains" }
+  ],
+  "officeScopes": [
+    { "officeId": "office-mla-team", "officeType": "mla_office", "label": "MLA Office Team", "scopeNodeId": "office-root-constituency", "role": "mla" },
+    { "officeId": "office-local-owner-1", "officeType": "councillor_office", "label": "Local Owner 1", "scopeNodeId": "office-ward-1", "role": "councillor" },
+    { "officeId": "office-local-owner-2", "officeType": "councillor_office", "label": "Local Owner 2", "scopeNodeId": "office-ward-2", "role": "councillor" },
+    { "officeId": "office-verification", "officeType": "verification_team", "label": "Office Intake Team", "scopeNodeId": "office-root-constituency", "role": "verification" }
+  ],
+  "disabledAssumptions": [
+    "statewide_cm_cell",
+    "all_ministries_dashboard",
+    "statewide_public_reporting"
+  ],
+  "approvalRules": {
+    "jurisdictionCatalogChange": "critical",
+    "officeScopeChange": "critical",
+    "requiredApprover": "MLA Office Admin"
+  }
+}

@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: whistle-postgres
+    environment:
+      POSTGRES_DB: whistle
+      POSTGRES_USER: whistle
+      POSTGRES_PASSWORD: whistle
+    ports:
+      - "54329:5432"
+    volumes:
+      - whistle_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U whistle -d whistle"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  whistle_postgres_data:
